@@ -1,22 +1,35 @@
 ---
 layout: default
+css: index
+js: index
+date: 2016-01-04T08:39:10-06:00
 ---
 
-<div class="home">
+<div class="main-container">
 
-  <h1 class="page-heading">Posts</h1>
-
-  <ul class="post-list">
-    {% for post in site.posts %}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-
-        <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h2>
-      </li>
-    {% endfor %}
-  </ul>
+  <h1 class="page-heading">List of Files</h1>
+  <div class="entry-meta">
+    <span class="sep">Last updated </span><time class="entry-date" datetime="" pubdate>{{ page.date }}</time>
+  </div>
+  <div class="main wrapper clearfix">
+    <article>
+      <header>
+        <h1>To Disable a Service</h1>
+        <p>Disabling a service prevents the cPanel &amp; WHM restart scripts (e.g. restartsrv_mail) from managing the service. It also prevents the cPanel &amp; WHM health monitoring system from managing the service. On CentOS 5, and CentOS 6 systems the services are still managable via the init scripts.</p>
+      </header>
+      <section>
+        <ul>
+          <li>DNS Daemons -&gt; /etc/nameddisable</li>
+          <li>FTP Daemons: /etc/ftpddisable or /etc/ftpserverdisable</li>
+          <li>Apache: /etc/httpddisable or /etc/apachedisable or /etc/httpdisable</li>
+          <li>Dovecot: /etc/imapdisable or /etc/imapddisable or /etc/cpimapdisable or /etc/popdisable or /etc/cppopdisable</li>
+          <li>PostgreSQL: /etc/postgresqldisable or /etc/postgresdisable</li>
+          <li>rsyslogd: /etc/rsyslogddisable or /etc/rsyslogdisable</li>
+          <li>Tailwatch: /etc/tailwatchddisable or /etc/tailwatchdisable</li>
+        </ul>
+        <p>In general you can prevent cPanel &amp; WHM from managing, or acknowledging a service by creating a file in /etc named servicenamedisabl or servicenameisevil.</p>
+      </section>
+    </article>
 
   <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
 
