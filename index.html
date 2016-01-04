@@ -2,7 +2,7 @@
 layout: default
 css: index
 js: index
-date: 2016-01-04T08:39:10-06:00
+date: 2016-01-04T13:05:32-06:00
 ---
 
 <div class="main-container">
@@ -19,7 +19,7 @@ date: 2016-01-04T08:39:10-06:00
       </header>
       <section>
         <ul>
-          <li>DNS Daemons -&gt; /etc/nameddisable</li>
+          <li>DNS Daemons: /etc/nameddisable</li>
           <li>FTP Daemons: /etc/ftpddisable or /etc/ftpserverdisable</li>
           <li>Apache: /etc/httpddisable or /etc/apachedisable or /etc/httpdisable</li>
           <li>Dovecot: /etc/imapdisable or /etc/imapddisable or /etc/cpimapdisable or /etc/popdisable or /etc/cppopdisable</li>
@@ -28,6 +28,22 @@ date: 2016-01-04T08:39:10-06:00
           <li>Tailwatch: /etc/tailwatchddisable or /etc/tailwatchdisable</li>
         </ul>
         <p>In general you can prevent cPanel &amp; WHM from managing, or acknowledging a service by creating a file in /etc named servicenamedisabl or servicenameisevil.</p>
+      </section>
+      <header>
+        <h1>Mail Configuration</h1>
+        <p>Flag files used for configuring behavior of the mail system: exim or dovecot.</p>
+      </header>
+      <section>
+        <dl>
+          <dt><dfn>/etc/eximmailtrap</dfn></dt>
+          <dd>Adds X-Source email header to outgoing mail</dd>
+          <dt><dfn>/etc/webspam</dfn></dt>
+          <dd>Prevent the &apos;nobody&apos; user from sending mail</dd>
+          <dt><dfn>/etc/popbeforesptmp</dfn></dt>
+          <dd>Allow use of POP-before-SMTP for authentication</dd>
+          <dt><dfn>/etc/eximpopbeforesmtpwarning</dfn></dt>
+          <dd>Adds the system user name (or list of user names) that sent an email to the X-PopBeforeSMTPSenders header</dd>
+        </dl>
       </section>
     </article>
 
