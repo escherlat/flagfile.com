@@ -8,17 +8,24 @@ date: 2016-01-04T13:05:32-06:00
 
 <div class="main-container">
 
-  <h1 class="page-heading">List of Files</h1>
-  <div class="entry-meta">
-    <span class="sep">Last updated </span><time class="entry-date" datetime="" pubdate>{{ page.date }}</time>
-  </div>
   <div class="main wrapper clearfix">
     <article>
       <header>
-        <h1>To Disable a Service</h1>
-        <p>Disabling a service prevents the cPanel &amp; WHM restart scripts (e.g. restartsrv_mail) from managing the service. It also prevents the cPanel &amp; WHM health monitoring system from managing the service. On CentOS 5, and CentOS 6 systems the services are still managable via the init scripts.</p>
+        <h1>Overview</h1>
+        <div class="entry-meta">
+          <span class="sep">Last updated </span><time class="entry-date" datetime="" pubdate>{{ page.date }}</time>
+        </div>
+        <p>The intent of this website is to provide a simple listing of all the files used by cPanel &amp; WHM for configuration. There are two basic types of files:
+        <ol>
+          <li>Touch files, whose mere presence indicates something is enabled or disabled.</li>
+          <li>Configuration files, whose contents determines the behavior of something.</li>
+        </ol>
       </header>
       <section>
+        <header>
+          <h2>To Disable a Service</h2>
+          <p>Disabling a service prevents the cPanel &amp; WHM restart scripts (e.g. restartsrv_mail) from managing the service. It also prevents the cPanel &amp; WHM health monitoring system from managing the service. On CentOS 5, and CentOS 6 systems the services are still managable via the init scripts.</p>
+        </header>
         <ul>
           <li>DNS Daemons: /etc/nameddisable</li>
           <li>FTP Daemons: /etc/ftpddisable or /etc/ftpserverdisable</li>
@@ -31,7 +38,7 @@ date: 2016-01-04T13:05:32-06:00
         <p>In general you can prevent cPanel &amp; WHM from managing, or acknowledging a service by creating a file in /etc named servicenamedisabl or servicenameisevil.</p>
       </section>
       <header>
-        <h1>Mail Configuration</h1>
+        <h2>Mail Configuration</h2>
         <p>Flag files used for configuring behavior of the mail system: exim or dovecot.</p>
       </header>
       <section>
