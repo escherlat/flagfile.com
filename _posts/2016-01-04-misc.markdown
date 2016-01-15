@@ -1,0 +1,14 @@
+---
+layout: post
+title: Miscellaneous
+about: Files that don't fit in a particular category (yet)
+date: 2016-01-03
+---
+
+/var/cpanel/mod_ruid2_chroot_safe
+
+: _Legacy_ - maintained for backwards compatibility Indicates that mod_ruid2 0.9.4 was patched which is now included in upstream mod_ruid2
+
+/var/cpanel/bwlimitcheck.disabled
+
+: Prevent cpanellogd from checking bandwidth limits. Web sites that exceed quota will not be bandwidth limited.

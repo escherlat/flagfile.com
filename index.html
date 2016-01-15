@@ -3,86 +3,29 @@ layout: default
 css: index
 js: index
 comments: true
-date: 2016-01-06T13:31:56-06:00
+date: 2016-01-15T10:23:49-06:00
 ---
 
 <div class="main-container">
 
   <div class="main wrapper clearfix">
     <article>
-      <header>
-        <h1>Overview</h1>
-        <div class="entry-meta">
-          <span class="sep">Last updated </span><time class="entry-date" datetime="" pubdate>{{ page.date }}</time>
-        </div>
-        <p>The intent of this website is to provide a simple listing of all the files used by cPanel &amp; WHM for configuration. There are two basic types of files:
-        <ol>
-          <li>Touch files, whose mere presence indicates something is enabled or disabled.</li>
-          <li>Configuration files, whose contents determines the behavior of something.</li>
-        </ol>
-        </p>
-      </header>
+    {% for post in site.posts reversed %}
       <section>
         <header>
-          <h2>To Disable a Service</h2>
-          <p>Disabling a service prevents the cPanel &amp; WHM restart scripts (e.g. restartsrv_mail) from managing the service. It also prevents the cPanel &amp; WHM health monitoring system from managing the service. On CentOS 5, and CentOS 6 systems the services are still managable via the init scripts.</p>
+          <h2>{{ post.title }}</h2>
+          {% if post.about %}
+          <p>{{ post.about }}</p>
+          {% endif %}
         </header>
-        <ul>
-          <li>DNS Daemons: /etc/nameddisable</li>
-          <li>FTP Daemons: /etc/ftpddisable or /etc/ftpserverdisable</li>
-          <li>Apache: /etc/httpddisable or /etc/apachedisable or /etc/httpdisable</li>
-          <li>Dovecot: /etc/imapdisable or /etc/imapddisable or /etc/cpimapdisable or /etc/popdisable or /etc/cppopdisable</li>
-          <li>PostgreSQL: /etc/postgresqldisable or /etc/postgresdisable</li>
-          <li>rsyslogd: /etc/rsyslogddisable or /etc/rsyslogdisable</li>
-          <li>Tailwatch: /etc/tailwatchddisable or /etc/tailwatchdisable</li>
-        </ul>
-        <p>In general you can prevent cPanel &amp; WHM from managing, or acknowledging a service by creating a file in /etc named servicenamedisabl or servicenameisevil.</p>
+        {{ post.content }}
       </section>
-      <header>
-        <h2>Mail Configuration</h2>
-        <p>Flag files used for configuring behavior of the mail system: exim or dovecot.</p>
-      </header>
-      <section>
-        <dl>
-          <dt><dfn>/etc/eximmailtrap</dfn></dt>
-          <dd>Adds X-Source email header to outgoing mail</dd>
-          <dt><dfn>/etc/webspam</dfn></dt>
-          <dd>Prevent the &apos;nobody&apos; user from sending mail</dd>
-          <dt><dfn>/etc/popbeforesptmp</dfn></dt>
-          <dd>Allow use of POP-before-SMTP for authentication</dd>
-          <dt><dfn>/etc/eximpopbeforesmtpwarning</dfn></dt>
-          <dd>Adds the system user name (or list of user names) that sent an email to the X-PopBeforeSMTPSenders header</dd>
-          <dt><dfn>/var/cpanel/allow_domainowner_mail_pass</dfn></dt>
-          <dd>When present allows the cPanel user to masquerade as an email account via IMAP and SMTP</dd>
-          <dt><dfn>/var/cpanel/email_send_limits/count_mailman</dfn></dt>
-          <dd>When present include Mailman mailing list messages in Mail sending limits calculations</dd>
-          <dt><dfn>/var/cpanel/smtpgidonlytweak</dfn></dt>
-          <dd>When present restrict sending of email to exim only.</dd>
-          <dt><dfn>/etc/global_spamassassin_enable</dfn></dt>
-          <dd>When present SpamAssassin is enabled for all accounts</dd>
-          <dt><dfn>/var/cpanel/config/email/trust_x_php_script</dfn></dt>
-          <dd>Use the X-PHP-Script to determine who sent a message</dd>
-          <dt><dfn>/var/cpanel/config/email/query_apache_for_nobody_senders</dfn></dt>
-          <dd>Query the webserver to determine who sent a message. Potentially an expensive operation.</dd>
-          <dt><dfn>/var/cpanel/custom_mailips</dfn></dt>
-          <dd>Exi will use contents of <em>/etc/mailips</em> to determine which IPv4 address to use for outbound connections for an account</dd>
-          <dt><dfn>/var/cpanel/exim_ipv4_sort_bias</dfn></dt>
-          <dd>Instructs Exim to prefer sending to an IPv4 address versus an IPv6 address</dd>
-        </dl>
-      </section>
-      <section>
-        <header>
-          <h2>Miscellaneous</h2>
-          <p>Files that don't fit in a particular category (yet)</p>
-        </header>
-        <dl>
-          <dt><dfn>/var/cpanel/mod_ruid2_chroot_safe</dfn></dt>
-          <dd><em>Legacy - maintained for backwards compatibility</em> Indicates that mod_ruid2 0.9.4 was patched which is now included in upstream mod_ruid2</dd>
-          <dt><dfn>/var/cpanel/bwlimitcheck.disabled</dfn></dt>
-          <dd>Prevent cpanellogd from checking bandwidth limits. Web sites that exceed quota will not be bandwidth limited.</dd>
-        </dl>
-      </section>
+    {% endfor %}
     </article>
+
+    <div class="entry-meta">
+          <span class="sep">Last updated </span><time class="entry-date" datetime="" pubdate>{{ page.date }}</time>
+    </div>
 
   <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
 
