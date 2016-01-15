@@ -3,7 +3,7 @@ layout: default
 css: index
 js: index
 comments: true
-date: 2016-01-04T13:05:32-06:00
+date: 2016-01-06T13:31:56-06:00
 ---
 
 <div class="main-container">
@@ -52,6 +52,34 @@ date: 2016-01-04T13:05:32-06:00
           <dd>Allow use of POP-before-SMTP for authentication</dd>
           <dt><dfn>/etc/eximpopbeforesmtpwarning</dfn></dt>
           <dd>Adds the system user name (or list of user names) that sent an email to the X-PopBeforeSMTPSenders header</dd>
+          <dt><dfn>/var/cpanel/allow_domainowner_mail_pass</dfn></dt>
+          <dd>When present allows the cPanel user to masquerade as an email account via IMAP and SMTP</dd>
+          <dt><dfn>/var/cpanel/email_send_limits/count_mailman</dfn></dt>
+          <dd>When present include Mailman mailing list messages in Mail sending limits calculations</dd>
+          <dt><dfn>/var/cpanel/smtpgidonlytweak</dfn></dt>
+          <dd>When present restrict sending of email to exim only.</dd>
+          <dt><dfn>/etc/global_spamassassin_enable</dfn></dt>
+          <dd>When present SpamAssassin is enabled for all accounts</dd>
+          <dt><dfn>/var/cpanel/config/email/trust_x_php_script</dfn></dt>
+          <dd>Use the X-PHP-Script to determine who sent a message</dd>
+          <dt><dfn>/var/cpanel/config/email/query_apache_for_nobody_senders</dfn></dt>
+          <dd>Query the webserver to determine who sent a message. Potentially an expensive operation.</dd>
+          <dt><dfn>/var/cpanel/custom_mailips</dfn></dt>
+          <dd>Exi will use contents of <em>/etc/mailips</em> to determine which IPv4 address to use for outbound connections for an account</dd>
+          <dt><dfn>/var/cpanel/exim_ipv4_sort_bias</dfn></dt>
+          <dd>Instructs Exim to prefer sending to an IPv4 address versus an IPv6 address</dd>
+        </dl>
+      </section>
+      <section>
+        <header>
+          <h2>Miscellaneous</h2>
+          <p>Files that don't fit in a particular category (yet)</p>
+        </header>
+        <dl>
+          <dt><dfn>/var/cpanel/mod_ruid2_chroot_safe</dfn></dt>
+          <dd><em>Legacy - maintained for backwards compatibility</em> Indicates that mod_ruid2 0.9.4 was patched which is now included in upstream mod_ruid2</dd>
+          <dt><dfn>/var/cpanel/bwlimitcheck.disabled</dfn></dt>
+          <dd>Prevent cpanellogd from checking bandwidth limits. Web sites that exceed quota will not be bandwidth limited.</dd>
         </dl>
       </section>
     </article>
