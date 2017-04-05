@@ -1,0 +1,89 @@
+---
+layout: post
+title: Version
+about: Explanations for files in /var/cpanel/version
+date: 2016-03-27
+---
+
+Actions that need to happen once, and only once, during an upgrade will create a file in **/var/cpanel/version**. To keep things simple, only the file names are used in the below list. Each can be found in the same **/var/cpanel/version** directory.
+
+Many of the files also exist on a fresh install. For most files, their presence prevents something from happening (e.g. a conversion). These files are usually zero-length in size. If a file contains something, then it is both the presence of the file, and its contents that are important.
+
+File names in bold indicate files researched and explained.
+
+* 2.2
+* **6.2**: Created by install/CPanelPost.pm; Contains a time stamp in Unix epoch format. Used by _unknown_
+* addons_update/
+* **advanced_zone_editor_install**: Created by **install/CPanelPost.pm** during initial installation. Its presence disables the Advanced DNS Editor in cPanel
+* api_shell
+* **bandwidth**: Contains a version number (currently: 3.3), and a date time of when the version was recorded. Created by **install/Bandwidth.pm**.
+* **bandwidth_sqlite_upgrade**: Created by **install/BandwidthSQLiteUpgrade.pm**. Its presence indicates the conversion from the older RRD binary format, to sqlite has occurred.
+* **boxtrapper**: Created by **bin/boxtrappermigrate**, it indicates an ancient conversion took place. Legacy. No longer has merit.
+* **cgibin-update**: Indicates **bin/update-cgibin-scripts** has run once.
+* **chkservd**: Indicates **bin/chkservd-install** executed once. Should contain 10.4.
+* **cpanel11.28.52**: Indicates **scripts/buildeximconf** and **scripts/restartsrv_exim** occurred during upgrade or fresh install.
+* cpanel11.29.1.4
+* cpanel11.34.1
+* cpanel11.36.0
+* cpanel11.36.0.4
+* cpanel11.38.0.14
+* cpanel11.38.0.9
+* cpanel11.39.0.11
+* cpanel11.40.0.10
+* cpanel11.40.0.13
+* cpanel11.40.0.24
+* cpanel11.40.0.27
+* cpanel11.40.0.7
+* cpanel11.40.1.13
+* cpanel11.44.0
+* cpanel11.46.0.13
+* cpanel11.48.0.12
+* cpanel11.48.0.13
+* cpanel11.48.2.0
+* cpanel11.49.0.1
+* cpanel11.50.0.0_preload_greylist_db
+* cpanel11.50.0.10
+* cpanel11.51.9999.130
+* cpanel11.51.9999.72
+* cpanel11.51.9999.75
+* cpanel11.52.0.1
+* cpanel11.52.0.21
+* cpanel11.52_fix_mail_only_featurelist
+* cpanel11.53.9999.10
+* cpanel11.53.9999.34
+* cpanel11.53.9999.40
+* cpanel11.54.0.0_password_strength_settings
+* cpanel11.54.0.1
+* cpanel11.54.0.14
+* cpanel11.54.0.14_ftpupdate
+* cpanel11.54.0.15_updateuserdomains
+* cpanel11.55.9522.1
+* cpanel11.55.9999.50
+* cpanel11.56.0.0
+* cpanel11.56.0.0_apache
+* **cpanel11.56-monitor-dnsadmin**: Enable chkservd monitoring of dnsadmin upon upgrading to version 56.
+* cpanel11.56-WarnIfPerl514TargetEnabled
+* cpanel11.8.0
+* cpanelupgrade_paper_lantern
+* cpbackup-excludes-v2
+* cphulk_pam_ctl
+* cpses_pam_ctl
+* defemailcheck8.2
+* dnsversion
+* edit_com
+* eximstats_imported
+* log_rotation
+* migrate_x3
+* modsecurity
+* named_init_update
+* phpini
+* proxydomains2
+* purged_old_datastores
+* remove-acl-res-cart
+* reset_mail_quotas_to_sane_values
+* resetpwcache
+* service_defaults_1
+* src_chmod
+* task-history
+* tomcat_inc_path
+* wildlog_fix3
