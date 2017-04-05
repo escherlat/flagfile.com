@@ -2,7 +2,7 @@
 layout: post
 title: Miscellaneous
 about: Files that don't fit in a particular category (yet)
-date: 2016-01-03
+date: 2017-03-05
 ---
 
 /var/cpanel/mod_ruid2_chroot_safe
@@ -12,3 +12,12 @@ date: 2016-01-03
 /var/cpanel/bwlimitcheck.disabled
 
 : Prevent cpanellogd from checking bandwidth limits. Web sites that exceed quota will not be bandwidth limited.
+
+/etc/usedomainpointers
+
+: When present allows for the following advanced PTR management:
+
+  1. MAXPTR can be specified in account plans. Useful in account creation, account modification
+  2. Allows requesting access logs for entries in /etc/usedomainpointers
+
+**Note: PTR functionality seems experiemental**
