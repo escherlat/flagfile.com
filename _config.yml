@@ -6,16 +6,20 @@
 # 'jekyll serve'. If you change this file, please restart the server process.
 
 # Site settings
-title: Your awesome title
-email: your-email@domain.com
+title: Flag files used by cPanel &amp; WHM &trade;
+email: kenneth.power@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+  A comprehensive and growing list of configuration files used
+  by cPanel &amp; WHM.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://yourdomain.com" # the base hostname & protocol for your site
-twitter_username: jekyllrb
-github_username:  jekyll
+url: "http://flagfile.com" # the base hostname & protocol for your site
+twitter_username: kennethpower
+github_username:  escherlat
 
 # Build settings
 markdown: kramdown
+
+timezone: America/Chicago
+google_id: UA-71900628-1
+
+disqus_shortname: flagfilecom
